@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="Photography and moving-image work by Adriana Tan.">
+  <title>Adriana Tan — Photographer &amp; Filmmaker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f6f4ef;
+      --ink: #24231f;
+      --muted: #77746d;
+      --line: #dedbd3;
+      --accent: #a45e43;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', Arial, sans-serif;
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      scroll-behavior: smooth;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; }
+    a { color: inherit; }
+    button { font: inherit; }
+    .wrap { width: min(1320px, calc(100% - 64px)); margin-inline: auto; }
+    .topbar { height: 82px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .wordmark { text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .nav { display: flex; gap: 34px; align-items: center; font-size: 12px; letter-spacing: .09em; text-transform: uppercase; }
+    .nav a { text-decoration: none; color: var(--muted); transition: color .2s; }
+    .nav a:hover, .nav a:focus-visible { color: var(--accent); }
+    .nav .contact-link { color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 5px; }
+    .hero { display: grid; grid-template-columns: 1fr 1.03fr; gap: 7%; align-items: center; padding: 82px 0 92px; }
+    .eyebrow { margin: 0 0 22px; color: var(--accent); font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 540px; margin-bottom: 24px; font: 400 clamp(46px, 6vw, 82px)/1.07 var(--serif); letter-spacing: -.045em; }
+    .intro { max-width: 420px; margin-bottom: 32px; color: var(--muted); font-size: 15px; line-height: 1.85; }
+    .text-link { display: inline-flex; gap: 13px; align-items: center; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .text-link span { font-size: 18px; transition: transform .2s; }
+    .text-link:hover span { transform: translateX(5px); }
+    .hero-photo { position: relative; height: min(62vw, 610px); min-height: 390px; margin: 0; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-caption { position: absolute; right: 0; bottom: -28px; color: var(--muted); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+    .section { padding: 84px 0 96px; border-top: 1px solid var(--line); }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 35px; }
+    .section-heading .eyebrow { margin-bottom: 12px; }
+    h2 { margin-bottom: 0; font: 400 clamp(34px, 4vw, 52px)/1.1 var(--serif); letter-spacing: -.035em; }
+    .section-note { margin: 0 0 4px; color: var(--muted); font-size: 12px; }
+    .gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: 28px 20px; }
+    .photo-card { grid-column: span 4; margin: 0; }
+    .photo-card:nth-child(2), .photo-card:nth-child(5) { grid-column: span 5; }
+    .photo-card:nth-child(3), .photo-card:nth-child(6) { grid-column: span 3; }
+    .photo-button { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; overflow: hidden; }
+    .photo-button img { display: block; width: 100%; height: 340px; object-fit: cover; transition: transform .55s cubic-bezier(.2,.65,.3,1); }
+    .photo-card:nth-child(2) .photo-button img, .photo-card:nth-child(5) .photo-button img { height: 430px; }
+    .photo-card:nth-child(3) .photo-button img, .photo-card:nth-child(6) .photo-button img { height: 290px; }
+    .photo-button:hover img { transform: scale(1.035); }
+    .photo-card figcaption { display: flex; justify-content: space-between; gap: 10px; margin-top: 12px; font-size: 11px; }
+    .photo-card figcaption span:last-child { color: var(--muted); }
+    .video-section { background: #e9e6de; }
+    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .video-card { position: relative; display: block; overflow: hidden; color: white; text-decoration: none; background: #373630; }
+    .video-card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; opacity: .76; transition: transform .5s, opacity .3s; }
+    .video-card:hover img { transform: scale(1.03); opacity: .9; }
+    .play { position: absolute; top: 50%; left: 50%; display: grid; place-items: center; width: 58px; height: 58px; border: 1px solid rgba(255,255,255,.8); border-radius: 50%; transform: translate(-50%,-50%); }
+    .play::after { content: ''; margin-left: 4px; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 10px solid white; }
+    .video-title { position: absolute; right: 20px; bottom: 17px; left: 20px; font: 400 24px var(--serif); }
+    .video-empty { grid-column: 1/-1; padding: 44px 30px; border: 1px solid #d5d1c8; text-align: center; }
+    .video-empty p { margin-bottom: 8px; font: 400 25px var(--serif); }
+    .video-empty span { color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 12%; align-items: start; }
+    .about-copy { max-width: 560px; color: var(--muted); font-size: 14px; line-height: 1.9; }
+    .about-copy p:last-child { margin-bottom: 0; }
+    .contact { padding: 86px 0; text-align: center; background: #26251f; color: var(--paper); }
+    .contact .eyebrow { color: #d29a7e; }
+    .contact h2 { max-width: 700px; margin: 0 auto 20px; }
+    .contact p { color: #c1beb5; font-size: 13px; }
+    .contact a { display: inline-block; margin-top: 10px; color: var(--paper); text-decoration: none; border-bottom: 1px solid #9a9589; padding-bottom: 7px; font-size: 13px; }
+    footer { display: flex; justify-content: space-between; gap: 18px; padding: 24px 0; color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+    .lightbox { position: fixed; z-index: 5; inset: 0; display: none; align-items: center; justify-content: center; padding: 30px; background: rgba(18,18,17,.94); }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: min(1100px, 90vw); max-height: 85vh; object-fit: contain; }
+    .lightbox-close { position: absolute; top: 20px; right: 26px; border: 0; background: none; color: white; font-size: 32px; cursor: pointer; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 600px); }
+      .topbar { height: 68px; }
+      .nav { gap: 16px; font-size: 10px; }
+      .nav a:nth-child(2) { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 36px; padding: 62px 0 72px; }
+      h1 { max-width: 440px; }
+      .hero-photo { height: 105vw; min-height: 0; max-height: 560px; }
+      .section { padding: 64px 0 72px; }
+      .gallery { grid-template-columns: repeat(2, 1fr); gap: 22px 12px; }
+      .photo-card, .photo-card:nth-child(n) { grid-column: span 1; }
+      .photo-button img, .photo-card:nth-child(n) .photo-button img { height: 48vw; max-height: 340px; }
+      .photo-card:nth-child(2n) { margin-top: 28px; }
+      .section-heading { align-items: start; flex-direction: column; }
+      .video-grid { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; gap: 26px; }
+      .contact { padding: 70px 20px; }
+    }
+    @media (max-width: 420px) {
+      .wrap { width: calc(100% - 28px); }
+      .wordmark { font-size: 11px; }
+      .nav { gap: 12px; font-size: 9px; }
+      .photo-card figcaption { font-size: 10px; }
+      footer { font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="wordmark" href="#home">Adriana Tan</a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#work">Photography</a>
+      <a href="#films">Films</a>
+      <a class="contact-link" href="#contact">Get in touch</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="home">
+      <div>
+        <p class="eyebrow">Photographer &amp; filmmaker</p>
+        <h1>Stories in light, still and moving.</h1>
+        <p class="intro">A collection of moments, places, and people worth looking at a little longer. Available for select projects and collaborations.</p>
+        <a class="text-link" href="#work">Explore the work <span aria-hidden="true">→</span></a>
+      </div>
+      <figure class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Mountain lake reflecting the surrounding landscape at dusk" fetchpriority="high">
+        <figcaption class="hero-caption">Somewhere quiet · 2024</figcaption>
+      </figure>
+    </section>
+
+    <section class="wrap section" id="work">
+      <div class="section-heading">
+        <div><p class="eyebrow">Selected photographs</p><h2>Out in the world</h2></div>
+        <p class="section-note">A few frames from near and far</p>
+      </div>
+      <div class="gallery">
+        <figure class="photo-card"><button class="photo-button" aria-label="Enlarge photograph: Coastal morning"><img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Soft waves breaking along a quiet coast" loading="lazy"></button><figcaption><span>Coastal morning</span><span>Portugal</span></figcaption></figure>
+        <figure class="photo-card"><button class="photo-button" aria-label="Enlarge photograph: The long way home"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&amp;fit=crop&amp;w=1100&amp;q=80" alt="Deer standing in a sunlit forest" loading="lazy"></button><figcaption><span>The long way home</span><span>Yosemite</span></figcaption></figure>
+        <figure class="photo-card"><button class="photo-button" aria-label="Enlarge photograph: In the afternoon"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Warm light spreading over a field at sunrise" loading="lazy"></button><figcaption><span>In the afternoon</span><span>California</span></figcaption></figure>
+        <figure class="photo-card"><button class="photo-button" aria-label="Enlarge photograph: Open water"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Deep blue ocean under a bright sky" loading="lazy"></button><figcaption><span>Open water</span><span>Pacific coast</span></figcaption></figure>
+        <figure class="photo-card"><button class="photo-button" aria-label="Enlarge photograph: A little slower"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&amp;fit=crop&amp;w=1100&amp;q=80" alt="A path winding through a green forest" loading="lazy"></button><figcaption><span>A little slower</span><span>Olympic National Park</span></figcaption></figure>
+        <figure class="photo-card"><button class="photo-button" aria-label="Enlarge photograph: Last light"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Hiker looking across a wide mountain landscape" loading="lazy"></button><figcaption><span>Last light</span><span>On the road</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section video-section" id="films">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="eyebrow">Moving images</p><h2>Stories in motion</h2></div>
+          <p class="section-note">A small selection of film work</p>
+        </div>
+        <div class="video-grid" id="video-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="wrap section about" id="about">
+      <div><p class="eyebrow">A little about me</p><h2>Looking closer,<br>always.</h2></div>
+      <div class="about-copy">
+        <p>I'm Adriana, a photographer drawn to natural light, honest details, and the feeling of being somewhere new. My work moves between portraits, travel, and the small in-between moments that make a story feel real.</p>
+        <p>For commissions, creative collaborations, or just to say hello, I'd love to hear from you.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="eyebrow">Have a project in mind?</p>
+      <h2>Let's make something<br>that feels like you.</h2>
+      <p>For bookings, collaborations, and kind notes.</p>
+      <a href="mailto:hello@adrianatan.com">hello@adrianatan.com</a>
+    </section>
+  </main>
+
+  <footer class="wrap"><span>© <span id="year"></span> Adriana Tan</span><span>Made with care &amp; available light</span></footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photograph">
+    <button class="lightbox-close" aria-label="Close enlarged photograph">×</button>
+    <img src="" alt="">
+  </div>
+
+  <script>
+    // Add your real video samples here. Use a publicly accessible YouTube or Vimeo URL.
+    const videoSamples = [
+      // { title: 'Film title', url: 'https://vimeo.com/your-video-id', poster: 'https://your-image.jpg' },
+    ];
+
+    const videoGrid = document.querySelector('#video-grid');
+    if (videoSamples.length) {
+      videoGrid.innerHTML = videoSamples.map((video) => `
+        <a class="video-card" href="${video.url}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${video.title}">
+          <img src="${video.poster}" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="video-title">${video.title}</span>
+        </a>`).join('');
+    } else {
+      videoGrid.innerHTML = '<div class="video-empty"><p>Films are on the way.</p><span>Add your YouTube or Vimeo samples in the <code>videoSamples</code> list in index.html.</span></div>';
+    }
+
+    document.querySelector('#year').textContent = new Date().getFullYear();
+    const lightbox = document.querySelector('#lightbox');
+    const lightboxImage = lightbox.querySelector('img');
+    let lastFocusedElement;
+    document.querySelectorAll('.photo-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const image = button.querySelector('img');
+        lastFocusedElement = button;
+        lightboxImage.src = image.currentSrc || image.src;
+        lightboxImage.alt = image.alt;
+        lightbox.classList.add('open');
+        lightbox.querySelector('button').focus();
+      });
+    });
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightboxImage.src = '';
+      lastFocusedElement?.focus();
+    }
+    lightbox.querySelector('button').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => { if (event.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+  </script>
+</body>
+</html>
