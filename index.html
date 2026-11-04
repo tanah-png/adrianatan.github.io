@@ -57,7 +57,7 @@
     .photo-button { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; overflow: hidden; }
     .photo-button img { display: block; width: 100%; height: 340px; object-fit: cover; transition: transform .55s cubic-bezier(.2,.65,.3,1); }
     .photo-card:nth-child(n+4) .photo-button img { height: 400px; }
-    .photo-card:first-child .photo-button img, .photo-card:last-child .photo-button img { height: 500px; object-fit: contain; background: #e9e6de; }
+    .photo-card.full-image .photo-button img { height: 500px; object-fit: contain; background: #e9e6de; }
     .photo-button:hover img { transform: scale(1.035); }
     .photo-card figcaption { display: flex; justify-content: space-between; gap: 10px; margin-top: 12px; font-size: 11px; }
     .photo-card figcaption span:last-child { color: var(--muted); }
@@ -98,7 +98,7 @@
       .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; }
       .photo-card, .photo-card:nth-child(n) { grid-column: span 1; }
       .photo-button img, .photo-card:nth-child(n) .photo-button img { height: 48vw; max-height: 340px; }
-      .photo-card:first-child .photo-button img, .photo-card:last-child .photo-button img { height: min(110vw, 560px); max-height: 560px; object-fit: contain; }
+      .photo-card.full-image .photo-button img { height: min(110vw, 560px); max-height: 560px; object-fit: contain; }
       .photo-card:nth-child(2n) { margin-top: 28px; }
       .section-heading { align-items: start; flex-direction: column; }
       .video-grid { grid-template-columns: 1fr; }
@@ -147,11 +147,11 @@
         <p class="section-note">A few frames from near and far</p>
       </div>
       <div class="gallery">
-        <figure class="photo-card"><button class="photo-button" aria-label="Enlarge photograph: Coastal morning"><img src="DSC06269%20copy.JPG" alt="Coastal morning" loading="lazy"></button><figcaption><span>Coastal morning</span><span>01</span></figcaption></figure>
+        <figure class="photo-card full-image"><button class="photo-button" aria-label="Enlarge photograph: Coastal morning"><img src="DSC06269%20copy.JPG" alt="Coastal morning" loading="lazy"></button><figcaption><span>Coastal morning</span><span>01</span></figcaption></figure>
+        <figure class="photo-card full-image"><button class="photo-button" aria-label="Enlarge photograph: A little slower"><img src="VPS_Siyoung_AT_26.JPG" alt="A little slower" loading="lazy"></button><figcaption><span>A little slower</span><span>04</span></figcaption></figure>
+        <figure class="photo-card full-image"><button class="photo-button" aria-label="Enlarge photograph: Last light"><img src="VPS_Yoshi_AT_09.JPG" alt="Last light" loading="lazy"></button><figcaption><span>Last light</span><span>05</span></figcaption></figure>
         <figure class="photo-card"><button class="photo-button" aria-label="Enlarge photograph: In the afternoon"><img src="VPS_Hannah_AT_67.JPG" alt="In the afternoon" loading="lazy"></button><figcaption><span>In the afternoon</span><span>02</span></figcaption></figure>
         <figure class="photo-card"><button class="photo-button" aria-label="Enlarge photograph: Open water"><img src="VPS_Kyle_AT_18.JPG" alt="Open water" loading="lazy"></button><figcaption><span>Open water</span><span>03</span></figcaption></figure>
-        <figure class="photo-card"><button class="photo-button" aria-label="Enlarge photograph: A little slower"><img src="VPS_Siyoung_AT_26.JPG" alt="A little slower" loading="lazy"></button><figcaption><span>A little slower</span><span>04</span></figcaption></figure>
-        <figure class="photo-card"><button class="photo-button" aria-label="Enlarge photograph: Last light"><img src="VPS_Yoshi_AT_09.JPG" alt="Last light" loading="lazy"></button><figcaption><span>Last light</span><span>05</span></figcaption></figure>
       </div>
     </section>
 
