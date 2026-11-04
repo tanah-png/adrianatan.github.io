@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f4ef">
+  <meta name="theme-color" content="#211e1d">
   <meta name="description" content="Photography and moving-image work by Adriana Tan.">
   <title>Adriana Tan — Photographer &amp; Filmmaker</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,12 +11,12 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      color-scheme: light;
-      --paper: #f6f4ef;
-      --ink: #24231f;
-      --muted: #77746d;
-      --line: #dedbd3;
-      --accent: #a45e43;
+      color-scheme: dark;
+      --paper: #211e1d;
+      --ink: #f3eeeb;
+      --muted: #b7aaa5;
+      --line: #443a38;
+      --accent: #c56b60;
       --serif: 'Playfair Display', Georgia, serif;
       --sans: 'DM Sans', Arial, sans-serif;
       font-family: var(--sans);
@@ -59,20 +59,20 @@
     .photo-button:hover img { transform: scale(1.035); }
     .photo-card figcaption { display: flex; justify-content: space-between; gap: 10px; margin-top: 12px; font-size: 11px; }
     .photo-card figcaption span:last-child { color: var(--muted); }
-    .video-section { background: #e9e6de; }
+    .video-section { background: #2b2625; }
     .video-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; max-width: 960px; margin-inline: auto; }
-    .video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #24231f; }
+    .video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #171515; }
     .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 12%; align-items: start; }
     .about-copy { max-width: 560px; color: var(--muted); font-size: 14px; line-height: 1.9; }
     .about-copy p:last-child { margin-bottom: 0; }
-    .contact { padding: 86px 0; text-align: center; background: #26251f; color: var(--paper); }
-    .contact .eyebrow { color: #d29a7e; }
+    .contact { padding: 86px 0; text-align: center; background: #171515; color: var(--ink); }
+    .contact .eyebrow { color: #d98a7f; }
     .contact h2 { max-width: 700px; margin: 0 auto 20px; }
-    .contact p { color: #c1beb5; font-size: 13px; }
-    .contact a { display: inline-block; margin-top: 10px; color: var(--paper); text-decoration: none; border-bottom: 1px solid #9a9589; padding-bottom: 7px; font-size: 13px; }
+    .contact p { color: #c3b9b5; font-size: 13px; }
+    .contact a { display: inline-block; margin-top: 10px; color: var(--ink); text-decoration: none; border-bottom: 1px solid #8e625d; padding-bottom: 7px; font-size: 13px; }
     footer { display: flex; justify-content: space-between; gap: 18px; padding: 24px 0; color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
-    .lightbox { position: fixed; z-index: 5; inset: 0; display: none; align-items: center; justify-content: center; padding: 30px; background: rgba(18,18,17,.94); }
+    .lightbox { position: fixed; z-index: 5; inset: 0; display: none; align-items: center; justify-content: center; padding: 30px; background: rgba(18,16,16,.96); }
     .lightbox.open { display: flex; }
     .lightbox img { max-width: min(1100px, 90vw); max-height: 85vh; object-fit: contain; }
     .lightbox-close { position: absolute; top: 20px; right: 26px; border: 0; background: none; color: white; font-size: 32px; cursor: pointer; }
