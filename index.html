@@ -60,16 +60,9 @@
     .photo-card figcaption { display: flex; justify-content: space-between; gap: 10px; margin-top: 12px; font-size: 11px; }
     .photo-card figcaption span:last-child { color: var(--muted); }
     .video-section { background: #e9e6de; }
-    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
-    .video-card { position: relative; display: block; overflow: hidden; color: white; text-decoration: none; background: #373630; }
-    .video-card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; opacity: .76; transition: transform .5s, opacity .3s; }
-    .video-card:hover img { transform: scale(1.03); opacity: .9; }
-    .play { position: absolute; top: 50%; left: 50%; display: grid; place-items: center; width: 58px; height: 58px; border: 1px solid rgba(255,255,255,.8); border-radius: 50%; transform: translate(-50%, -50%); }
-    .play::after { content: ''; margin-left: 4px; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 10px solid white; }
-    .video-title { position: absolute; right: 20px; bottom: 17px; left: 20px; font: 400 24px var(--serif); }
-    .video-empty { grid-column: 1/-1; padding: 44px 30px; border: 1px solid #d5d1c8; text-align: center; }
-    .video-empty p { margin-bottom: 8px; font: 400 25px var(--serif); }
-    .video-empty span { color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .video-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; max-width: 960px; margin-inline: auto; }
+    .video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #24231f; }
+    .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 12%; align-items: start; }
     .about-copy { max-width: 560px; color: var(--muted); font-size: 14px; line-height: 1.9; }
     .about-copy p:last-child { margin-bottom: 0; }
@@ -99,7 +92,6 @@
       .photo-card.full-image .photo-button img { height: min(110vw, 560px); max-height: 560px; object-fit: contain; }
       .photo-card:nth-child(2n) { margin-top: 28px; }
       .section-heading { align-items: start; flex-direction: column; }
-      .video-grid { grid-template-columns: 1fr; }
       .about { grid-template-columns: 1fr; gap: 26px; }
       .contact { padding: 70px 20px; }
     }
@@ -155,7 +147,11 @@
           <div><p class="eyebrow">Moving images</p><h2>Stories in motion</h2></div>
           <p class="section-note">A small selection of film work</p>
         </div>
-        <div class="video-grid" id="video-grid" aria-live="polite"></div>
+        <div class="video-grid">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/DuRSknvn2QY?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=DuRSknvn2QY&amp;controls=1&amp;playsinline=1&amp;rel=0" title="Adriana Tan film portfolio video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -183,18 +179,6 @@
   </div>
 
   <script>
-    const videoSamples = [];
-
-    const videoGrid = document.querySelector('#video-grid');
-    if (videoSamples.length) {
-      videoGrid.innerHTML = videoSamples.map((video) => `
-        <a class="video-card" href="${video.url}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${video.title}">
-          <img src="${video.poster}" alt="" loading="lazy"><span class="play" aria-hidden="true"></span><span class="video-title">${video.title}</span>
-        </a>`).join('');
-    } else {
-      videoGrid.innerHTML = '<div class="video-empty"><p>Films are on the way.</p><span>Add your YouTube or Vimeo samples in the <code>videoSamples</code> list in index.html.</span></div>';
-    }
-
     document.querySelector('#year').textContent = new Date().getFullYear();
     const lightbox = document.querySelector('#lightbox');
     const lightboxImage = lightbox.querySelector('img');
